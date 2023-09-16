@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Listar Cursos</h1>
+    <a href="#">Cadastrar novo curso</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for curso in lista %}
+           <tr>
+           <td>{{ curso.nome }}</td>
+           <td>{{ curso.valor }}</td>
+           <td> Alterar  Excluir </td>
+           </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
