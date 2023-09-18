@@ -20,3 +20,4 @@ class Turma(models.Model):
 
     def __str__(self):
         return f"{self.curso.nome} - {self.dataInicio} - {self.dataTermino}"
+
