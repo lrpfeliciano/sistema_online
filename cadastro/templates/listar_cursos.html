@@ -20,7 +20,10 @@
            <tr>
            <td>{{ curso.nome }}</td>
            <td>{{ curso.valor }}</td>
-           <td> <a href="#">Alterar</a>   Excluir </td>
+           <td>
+               <a href="/cadastro/editar_curso/{{curso.codigo}}">Alterar</a>
+               <a href="/cadastro/excluir_curso/{{curso.codigo}}">Excluir</a>
+           </td>
            </tr>
         {% endfor %}
         </tbody>

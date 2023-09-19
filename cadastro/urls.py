@@ -9,6 +9,7 @@ urlpatterns = [
 
     path('listar_curso', views.listarCursos, name='listarCurso'),
     path('incluir_curso', views.incluirCurso, name='incluirCurso'),
-    path('editar_curso/<int:id>', views.editarCurso, name='editarCurso')
+    path('editar_curso/<int:id>', views.editarCurso, name='editarCurso'),
+    path('excluir_curso/<int:id>', views.excluirCurso, name='excluirCurso')
 
 ]
