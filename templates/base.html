@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema acadêmico online</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+      <a href="{% url 'listarCurso' %}">Cursos</a>
+      <a href="#">Turmas</a>
+
+      {% block content %}
+      {% endblock %}
+    </div>
+</body>
+    {% bootstrap_javascript %}
+
+</html>

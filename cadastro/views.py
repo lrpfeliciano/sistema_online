@@ -9,7 +9,8 @@ from cadastro.models import Curso
 
 
 def index(request):
-    return HttpResponse("Olá, Mundo! Agora estou na web")
+    # return HttpResponse("Olá, Mundo! Agora estou na web")
+    return render(request, "inicio.html")
 
 
 def teste(request):

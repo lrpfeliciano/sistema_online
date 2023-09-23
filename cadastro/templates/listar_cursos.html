@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     <h1>Listar Cursos</h1>
     <a href="{% url 'incluirCurso' %}">Cadastrar novo curso</a>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -28,5 +23,5 @@
         {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+
+{% endblock %}
