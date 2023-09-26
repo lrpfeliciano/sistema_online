@@ -2,19 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema acadêmico online</title>
     {% load bootstrap5 %}
     {% bootstrap_css %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
 </head>
 <body>
+
     <div class="container">
-      <a href="{% url 'listarCurso' %}">Cursos</a>
-      <a href="#">Turmas</a>
+        {% if messages %}
+            {% for m in messages %}
+                <div class="alert alert-warning" role="alert">
+                    {{m}}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <nav class="navbar navbar-expand-lg" >
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}">Sistema Online</a>
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#menu"
+                        aria-controls="menu" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span>Menu</span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="list-item">
+                            <a class="nav-link" href="{% url 'listarCurso' %}">Cursos</a>
+                        </li>
+                        <li class="list-item">
+                            <a class="nav-link" href="#">Turmas</a>
+                        </li>
+                        <li class="list-item">
+                            <a class="nav-link" href="#">Alunos</a>
+                        </li>
+                        <li class="list-item">
+                            <a class="nav-link" href="#">Professores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
       {% block content %}
       {% endblock %}
     </div>
 </body>
     {% bootstrap_javascript %}
-
 </html>

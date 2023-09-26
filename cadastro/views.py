@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -57,5 +58,5 @@ def excluirCurso(request, id):
     try:
         curso.delete()
     except:
-        pass
+        messages.error(request, "Não é possível excluir.")
     return redirect('listarCurso')
