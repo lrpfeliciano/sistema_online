@@ -20,6 +20,8 @@
                 </div>
             {% endfor %}
         {% endif %}
+
+        {% if user.is_authenticated %}
         <nav class="navbar navbar-expand-lg" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'index' %}">Sistema Online</a>
@@ -43,13 +45,25 @@
                         <li class="list-item">
                             <a class="nav-link" href="#">Professores</a>
                         </li>
+                        <li class="list-item">
+                            <a class="nav-link" href="{% url 'sair' %}">Sair</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-      {% block content %}
-      {% endblock %}
+        {% block content %}
+        {% endblock %}
+
+        {% else %}
+
+        <a href="{% url 'login' %}">Clique aqui para logar</a>
+        <a href="{% url 'registro' %}">Para criar uma nova conta</a>
+
+        {% endif %}
+
+
     </div>
 </body>
     {% bootstrap_javascript %}

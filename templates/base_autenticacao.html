@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        {% if messages %}
+            {% for m in messages %}
+                <div class="alert alert-warning" role="alert">
+                    {{m}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <h2>Sistema acadêmico online</h2>
+        {% block content %}
+        {% endblock %}
+
+    </div>
+</body>
+</html>
