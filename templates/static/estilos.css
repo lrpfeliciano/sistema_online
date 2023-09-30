@@ -1,3 +1,7 @@
 .btn-primary {
     background-color: #00FF00 !important;
 }
+
+.login {
+    width: 70%;
+}

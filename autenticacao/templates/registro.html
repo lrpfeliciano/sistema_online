@@ -1,8 +1,27 @@
 {% extends 'base_autenticacao.html' %}
-
+{% load bootstrap5 %}
 {% block content %}
     <h2>Cadastro</h2>
 
+    <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form usuario_form %}
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+        <button type="button" title="Ver ou ocultar senha" onclick="viewSenha()">
+            <img src="https://unsplash.it/16/16">
+        </button>
+    </form>
+
+    <script>
+        function viewSenha(){
+          var tipo = document.getElementById("id_password1")
+          if (tipo.type == "password") {
+            tipo.type = "text";
+          }else{
+            tipo.type = "password";
+          }
+        }
+    </script>
 {% endblock %}
 
 

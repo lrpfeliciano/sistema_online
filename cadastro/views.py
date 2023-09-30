@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from cadastro.forms import CursoForm
-from cadastro.models import Curso
+from cadastro.models import Curso, Turma
 
 
 # Create your views here.
@@ -60,3 +60,8 @@ def excluirCurso(request, id):
     except:
         messages.error(request, "Não é possível excluir.")
     return redirect('listarCurso')
+
+
+def listarTurmas(request):
+    turmas = Turma.objects.all()
+    return render(request, 'listar_turmas.html', {'turmas': turmas})

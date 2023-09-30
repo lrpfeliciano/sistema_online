@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Listar Turmas</h1>
+
+    <a href="#" class="btn btn-primary">Criar uma nova turma</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Data Início</th>
+                <th>Data Término</th>
+                <th>Horário</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in turmas %}
+                <tr>
+                    <td>{{t.curso.nome}}</td>
+                    <td>{{t.dataInicio | date:"d/m/Y"}}</td>
+                    <td>{{t.dataTermino | date:"d/m/Y"}}</td>
+                    <td>{{t.dataInicio | date:"H:i" }} às {{ t.dataTermino | date:"H:i" }}</td>
+                    <td> Alterar Excluir</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
