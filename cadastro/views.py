@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from cadastro.forms import CursoForm
+from cadastro.forms import CursoForm, TurmaForm
 from cadastro.models import Curso, Turma
 
 
@@ -65,3 +65,30 @@ def excluirCurso(request, id):
 def listarTurmas(request):
     turmas = Turma.objects.all()
     return render(request, 'listar_turmas.html', {'turmas': turmas})
+
+
+def incluirTurma(request):
+    if request.method == 'POST':
+        form = TurmaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("listarTurmas")
+
+    form = TurmaForm()
+    return render(request, 'incluir_turma.html', {'form': form})
+
+
+def editarTurma(request, id):
+    turma = Turma.objects.get(id=id)
+    form = TurmaForm(instance=turma)
+    if request.method == 'POST':
+        form = TurmaForm(request.POST, instance=turma)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect("listarTurmas")
+            except:
+                pass
+
+    return render(request, 'incluir_turma.html', {'form': form})
+

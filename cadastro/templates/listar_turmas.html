@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Listar Turmas</h1>
 
-    <a href="#" class="btn btn-primary">Criar uma nova turma</a>
+    <a href="{% url 'incluirTurma' %}" class="btn btn-primary">Criar uma nova turma</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -21,7 +21,7 @@
                     <td>{{t.dataInicio | date:"d/m/Y"}}</td>
                     <td>{{t.dataTermino | date:"d/m/Y"}}</td>
                     <td>{{t.dataInicio | date:"H:i" }} às {{ t.dataTermino | date:"H:i" }}</td>
-                    <td> Alterar Excluir</td>
+                    <td><a href="{% url 'editarTurma' t.id %}">Alterar</a>  Excluir</td>
                 </tr>
             {% endfor %}
         </tbody>
