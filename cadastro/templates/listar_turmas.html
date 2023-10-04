@@ -21,7 +21,11 @@
                     <td>{{t.dataInicio | date:"d/m/Y"}}</td>
                     <td>{{t.dataTermino | date:"d/m/Y"}}</td>
                     <td>{{t.dataInicio | date:"H:i" }} às {{ t.dataTermino | date:"H:i" }}</td>
-                    <td><a href="{% url 'editarTurma' t.id %}">Alterar</a>  Excluir</td>
+                    <td>
+                        <a href="{% url 'editarTurma' t.id %}">Alterar</a>
+                        <a href="javascript:void(0)"
+                           onclick="abrirTela('{% url 'excluirTurma' t.id %}')">Excluir</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

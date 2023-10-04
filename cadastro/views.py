@@ -92,3 +92,11 @@ def editarTurma(request, id):
 
     return render(request, 'incluir_turma.html', {'form': form})
 
+
+def excluirTurma(request,id):
+    turma = Turma.objects.get(id=id)
+    try:
+        turma.delete()
+    except:
+        messages.error(request, 'Erro na exclusão do registro')
+    return redirect('listarTurmas')

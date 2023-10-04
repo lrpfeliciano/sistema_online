@@ -16,6 +16,7 @@ urlpatterns = [
     # Turmas
     path('listar_turma', views.listarTurmas, name='listarTurmas'),
     path('incluirTurma', views.incluirTurma, name='incluirTurma'),
-    path('editarTurma/<int:id>', views.editarTurma, name='editarTurma')
+    path('editarTurma/<int:id>', views.editarTurma, name='editarTurma'),
+    path('excluirTurma/<int:id>', views.excluirTurma, name='excluirTurma')
 
 ]

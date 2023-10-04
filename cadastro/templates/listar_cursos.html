@@ -18,62 +18,16 @@
            <td>{{ curso.nome }}</td>
            <td>{{ curso.valor }}</td>
            <td>
-               <a href="/cadastro/editar_curso/{{curso.codigo}}">Alterar</a>
+               <a href="{% url 'editarCurso' curso.codigo %}">Alterar</a>
 
                <a href="javascript:void(0)"
-                  onclick="abrirTela('/cadastro/excluir_curso/{{curso.codigo}}')">Excluir</a>
+                  onclick="abrirTela('{% url 'excluirCurso' curso.codigo %}')">Excluir</a>
            </td>
            </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <div class="modal fade" id="telaModal" tabindex="-1" role="dialog"
-      aria-labelledby="telaModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-             <div class="modal-content">
-                 <div class="modal-header">
-                     <h4 class="modal-title">Exclusão</h4>
-                 </div>
-                 <form  id="modalForm">
-                     <div class="modal-body">
-                         <label>Deseja excluir?</label>
-                     </div>
-                     <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                 onclick="fecharTela()">Cancelar</button>
-                         {% csrf_token %}
-                         <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                 onclick="excluir()">Excluir</button>
-                     </div>
-                 </form>
-
-             </div>
-        </div>
-    </div>
-
-    <script>
-        caminho = "";
-        var telaModal = document.getElementById('telaModal');
-        function abrirTela(url){
-            caminho = url;
-            telaModal.style.display = "block";
-            telaModal.style.paddingRight = "17px";
-            telaModal.className="modal fade show";
-
-        }
-
-        function fecharTela(){
-            telaModal.style.display="none";
-            telaModal.style.className="modal fade";
-        }
-
-        function excluir(){
-            window.location = caminho;
-            fecharTela();
-
-        }
-    </script>
 {% endblock %}
 
 
